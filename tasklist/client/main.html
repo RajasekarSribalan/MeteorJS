@@ -14,8 +14,12 @@
   <ul>
     {{#each todos}} {{> todo}} {{/each}}
   </ul>
+<button class = "add-todo">Add todo</button>
+
 </template>
 
 <template name="todo">
   <li class="{{#if done}}done{{/if}}">{{label}}</li>
+
+
 </template>
