@@ -1,25 +1,19 @@
 import { Session } from 'meteor/session'
-Session.set("todos", [
-  { label: "Buy milk", done: true },
-  { label: "Upload photos" },
-  { label: "Dess up quickly" }
-]);
+import { Mongo } from 'meteor/mongo'
 
+Todos = new Mongo.Collection("todos");
 
 Template.todoList.helpers({
   todos: function () {
-    return Session.get("todos");
+    return Todos.find();
   }
 });
 
 Template.todoList.events({
   "click .add-todo": function () {
-    console.log("added todos...");
-    var todos = Session.get("todos");
-    todos.push({
-      label: "New todo"
-    });
-
-    Session.set("todos", todos)
+    Todos.insert({
+      label:"New todo345",
+      createdAt:new Date()
+    })
   }
 });
