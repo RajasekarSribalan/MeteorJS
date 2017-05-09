@@ -14,12 +14,12 @@
   <ul>
     {{#each todos}} {{> todo}} {{/each}}
   </ul>
-<button class = "add-todo">Add todo</button>
+  <button class="add-todo">Add todo</button>
 
 </template>
 
 <template name="todo">
-  <li class="{{#if done}}done{{/if}}"><input type="checkbox"/>{{label}}</li>
+  <li class="{{#if done}}done{{/if}}"><input type="checkbox" checked="{{#if done}}checked{{/if}}" />{{label}} <button class="delete">X</button></li>
 
 
 </template>
