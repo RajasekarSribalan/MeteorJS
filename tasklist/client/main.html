@@ -3,24 +3,25 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-  <h1>My name is Rajasekar...</h1>
-
-  {{> todoList}}
+  <div class="container-fluid">
+    <div class="col-lg-4 col-lg-offset-4">
+      {{> todoList}}</div>
+  </div>
 </body>
 
 <template name="todoList">
   <h3>Todos</h3>
-  <button id="reverse-sort">Reverse Sort</button>
+  <button id="reverse-sort" class ="btn btn-default">Reverse Sort</button>
   <ul>
     {{#each todos}} {{> todo}} {{/each}}
   </ul>
-  <button class="add-todo">Add todo</button>
+  <button class="add-todo btn btn-default">Add todo</button>
 
 </template>
 
 <template name="todo">
-  <li class="{{#if done}}done{{/if}}"><input type="checkbox" checked="{{#if done}}checked{{/if}}" />{{label}} <button class="delete">X</button> {{createdAt}} </li>
+  <li class="{{#if done}}done{{/if}}"><input type="checkbox" checked="{{#if done}}checked{{/if}}" />{{label}} <button class="delete btn btn-default">X</button> {{createdAt}}
+  </li>
 
 
 </template>
