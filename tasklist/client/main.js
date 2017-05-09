@@ -3,9 +3,11 @@ import { Mongo } from 'meteor/mongo'
 
 Todos = new Mongo.Collection("todos");
 
+Session.set("sortOrder",1);
+
 Template.todoList.helpers({
   todos: function () {
-    return Todos.find();
+    return Todos.find({},{sort : {createdAt: Session.get("sortOrder")}});
   }
 });
 
@@ -15,6 +17,9 @@ Template.todoList.events({
       label:"New todo345",
       createdAt:new Date()
     })
+  },
+  "click #reverse-sort": function(){
+    Session.set("sortOrder",Session.get("sortOrder") * -1);
   }
 });
 
